@@ -8,16 +8,17 @@ angular.module('myYoApp')
             'AngularJS',
             'Karma'
         ];
-
+        $scope.cartCount = localStorage.getItem('cartCount');
         $scope.addCartCount = function(){
+
             if(!localStorage.getItem('cartCount')){
 
                 localStorage.setItem('cartCount',0);
             }
 
-            localStorage.setItem('cartCount',parseInt(localStorage.getItem('cartCount')) + 1);
+            $scope.cartCount = parseInt(localStorage.getItem('cartCount')) + 1;
+            localStorage.setItem('cartCount', $scope.cartCount);
 
         };
-        $scope.cartCount = $scope.addCartCount();
 
     });

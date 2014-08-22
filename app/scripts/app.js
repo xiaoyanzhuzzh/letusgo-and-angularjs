@@ -27,14 +27,14 @@ angular
         templateUrl: 'views/itemsList.html',
         controller: 'ItemsListCtrl'
       })
-      .when('/cartItem', {
-        templateUrl: 'views/cartItem.html',
-        controller: 'CartItemCtrl'
+      .when('/cartItemsList', {
+        templateUrl: 'views/cartItemsList.html',
+        controller: 'CartItemsListCtrl'
       })
 
-      .when('/cartPay', {
-        templateUrl: 'views/cartPay.html',
-        controller: 'CartPayCtrl'
+      .when('/cartPayList', {
+        templateUrl: 'views/cartPayList.html',
+        controller: 'CartPayListCtrl'
       })
       .otherwise({
         redirectTo: '/'

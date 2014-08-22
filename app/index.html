@@ -48,14 +48,14 @@
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav">
 
-                      <li role="presentation" class="active"><a href="/">主页</a></li>
+                      <li role="presentation" class="active"><a href="#">主页</a></li>
                       <li role="presentation"><a ng-href="#/itemsList">商城</a></li>
 
-                      <li role="presentation"><a ng-href="#/cartpay">购物结算</a></li>
+                      <li role="presentation"><a ng-href="#/cartPayList">购物结算</a></li>
                   </ul>
                   <ul class="nav navbar-nav navbar-right">
                       <li>
-                          <a href="#/cartItem">
+                          <a href="#/cartItemsList">
                               <span id="itemsNumber" class="glyphicon glyphicon-shopping-cart text-primary">购物车{{cartCount}}</span>
 
                           </a>
@@ -103,6 +103,7 @@
                 <script src="scripts/model/localStorageItems.js"></script>
                 <script src="scripts/controllers/cartCount.js"></script>
                 <script src="scripts/controllers/itemsList.js"></script>
+                <script src="scripts/controllers/cartItemsList.js"></script>
                 <!-- endbuild -->
 
 
