@@ -9,14 +9,8 @@
  */
 angular.module('myYoApp')
   .controller('CartPayListCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
 
-    $scope.cartPayList = JSON.parse(localStorage.getItem('cartItems'));
-    console.log($scope.cartPayList);
+    $scope.cartPayList = Util.localStorage.setStorageItem('cartItems');
 
     $scope.total = getTotal($scope.cartPayList);
 

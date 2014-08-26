@@ -9,7 +9,6 @@ function loadAllItems() {
         new Item('ITEM000005', '方便面', '袋', 4.50, '零食')
     ];
 
-    localStorage.setItem('item',JSON.stringify(items));
+    Util.localStorage.setStorageItem('item',items);
     return items;
 }
-

@@ -10,7 +10,8 @@ angular.module('myYoApp')
 
           $scope.$parent.addCartCount();
 
-          var cartItems = JSON.parse(localStorage.getItem('cartItems'));
+          var cartItems = Util.localStorage.getStorageItem('cartItems');
+
               if (!cartItems) {
                   cartItems = [];
               }
@@ -23,13 +24,11 @@ angular.module('myYoApp')
                   cartItems.push(new  CartItem(getCartItems(item.barcode),1));
               }
 
-              localStorage.setItem('cartItems',JSON.stringify(cartItems));
+             Util.localStorage.setStorageItem('cartItems', cartItems);
 
           };
 
     });
-
-
 
     function getCartItems(id){
 

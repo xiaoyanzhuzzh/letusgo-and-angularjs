@@ -10,7 +10,7 @@
 angular.module('myYoApp')
   .controller('CartItemsListCtrl', function ($scope) {
 
-       $scope.cartItems = JSON.parse(localStorage.getItem('cartItems'));
+       $scope.cartItems = Util.localStorage.getStorageItem('cartItems');
 
        $scope.total = getTotal($scope.cartItems);
 
@@ -18,7 +18,7 @@ angular.module('myYoApp')
 
        $scope.changeCartItemcart = function(cartItem){
 
-         changeCurrentCartItemNumber(cartItem, $scope.cartItems)
+          changeCurrentCartItemNumber(cartItem, $scope.cartItems)
           $scope.total = getTotal($scope.cartItems);
           $scope.totalNumber = getTotalNumber($scope.cartItems);
           $scope.$parent.cartCount = getTotalNumber($scope.cartItems);
@@ -56,8 +56,8 @@ angular.module('myYoApp')
           if(cartItem.item.name === countArray[i].item.name) {
                countArray[i].number += 1;
 
-               localStorage.setItem('cartItems',JSON.stringify(countArray));
-               localStorage.setItem('cartCount',getTotalNumber(countArray));
+               Util.localStorage.setStorageItem('cartItems', countArray);
+               Util.localStorage.setStorageItem('cartCount', getTotalNumber(countArray));
           }
       }
   }
@@ -72,8 +72,8 @@ angular.module('myYoApp')
              if (countArray[i].number > 1){
                  countArray[i].number -= 1;
 
-                 localStorage.setItem('cartItems',JSON.stringify(countArray));
-                 localStorage.setItem('cartCount',getTotalNumber(countArray));
+                 Util.localStorage.setStorageItem('cartItems', countArray);
+                 Util.localStorage.setStorageItem('cartCount', getTotalNumber(countArray));
              }
              break;
          }
@@ -89,8 +89,9 @@ angular.module('myYoApp')
      for(var i = 0; i < countArray.length; i++){
          if( cartItem.item.name === countArray[i].item.name){
              countArray = _.without(countArray,countArray[i]);
-             localStorage.setItem('cartItems',JSON.stringify(countArray));
-             localStorage.setItem('cartCount',getTotalNumber(countArray));
+
+             Util.localStorage.setStorageItem('cartItems', countArray);
+             Util.localStorage.setStorageItem('cartCount', getTotalNumber(countArray));
          }
      }
      return countArray;
@@ -105,8 +106,9 @@ angular.module('myYoApp')
        if( cartItem.item.name === countArray[i].item.name){
            console.log(cartItem.number);
            countArray[i].number = parseInt(cartItem.number);
-           localStorage.setItem('cartItems',JSON.stringify(countArray));
-           localStorage.setItem('cartCount',getTotalNumber(countArray));
+           
+           Util.localStorage.setStorageItem('cartItems', countArray);
+           Util.localStorage.setStorageItem('cartCount', getTotalNumber(countArray));
        }
    }
 

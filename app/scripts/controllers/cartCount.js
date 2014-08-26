@@ -3,21 +3,18 @@
 
 angular.module('myYoApp')
     .controller('addCartCountCtrl', function ($scope) {
-        $scope.awesomeThings = [
-            'HTML5 Boilerplate',
-            'AngularJS',
-            'Karma'
-        ];
-        $scope.cartCount = localStorage.getItem('cartCount');
+
+        $scope.cartCount = Util.localStorage.getStorageItem('cartCount');
+
         $scope.addCartCount = function(){
 
-            if(!localStorage.getItem('cartCount')){
+            if(!Util.localStorage.getStorageItem('cartCount')){
 
-                localStorage.setItem('cartCount',0);
+                Util.localStorage.setStorageItem('cartCount', 0);
             }
 
-            $scope.cartCount = parseInt(localStorage.getItem('cartCount')) + 1;
-            localStorage.setItem('cartCount', $scope.cartCount);
+            $scope.cartCount = Util.localStorage.getStorageItem('cartCount') + 1;
+            Util.localStorage.setStorageItem('cartCount', $scope.cartCount);
 
         };
 
