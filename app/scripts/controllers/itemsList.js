@@ -6,13 +6,12 @@ angular.module('myYoApp')
 
         $scope.items = loadAllItems();
 
-
         $scope.addToCart = function(item) {
 
           $scope.$parent.addCartCount();
 
           var cartItems = JSON.parse(localStorage.getItem('cartItems'));
-              if (cartItems === 0) {
+              if (!cartItems) {
                   cartItems = [];
               }
 
@@ -25,7 +24,7 @@ angular.module('myYoApp')
               }
 
               localStorage.setItem('cartItems',JSON.stringify(cartItems));
-              console.log(localStorage.getItem('cartItems'));
+
           };
 
     });

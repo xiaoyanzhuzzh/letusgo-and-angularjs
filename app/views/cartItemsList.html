@@ -14,17 +14,29 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="panel panel-default" ng-repeat="cartItem in cartItems">
                        <div class="panel-heading">{{cartItems.item.category}}</div>
                        <div class="panel-body">
                           <div class="row">
                              <div class="col-md-2 form-group">{{cartItem.item.name}}</div>
                              <div class="col-md-2 form-group">{{(cartItem.item.price).toFixed(2)}}/{{cartItem.item.unit}}</div>
-                             <div class="col-md-4 form-group"><button class="addButton"><span class="glyphicon glyphicon-plus"></span></button>
-                                <input type="text" class="inputItemNumber" value={{cartItem.number}}>
-                             <button class="reduceButton"><span class="glyphicon glyphicon-minus"></span></button></div>
+                             <div class="col-md-4 form-group">
+                                 <button class="addButton">
+                                     <span class="glyphicon glyphicon-plus" ng-click="addCartItemNumber(cartItem)"></span>
+                                 </button>
+                                 <input type="text" ng-model="cartItem.number" ng-pattern="/^\d+$/" ng-change="changeCartItemcart(cartItem)">
+
+                                 <button class="reduceButton" ng-click="reduceCartItemNumber(cartItem)">
+                                     <span class="glyphicon glyphicon-minus"></span>
+                                 </button>
+                             </div>
                              <div class="col-md-2 form-group text-success">{{(cartItem.number * cartItem.item.price).toFixed(2)}}</div>
-                             <div class="col-md-2 form-group"><button class="trash"><span class="glyphicon glyphicon-trash"></span></button></div>
+                             <div class="col-md-2 form-group">
+                                 <button class="trash">
+                                      <span class="glyphicon glyphicon-trash" ng-click="deleteCartItem(cartItem)"></span>
+                                 </button>
+                             </div>
                           </div>
                        </div>
                   </div>
@@ -32,8 +44,16 @@
             <div class="panel panel-success">
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-2 text-info"><h4>总数：{{totalNumber}}<span class="text-danger" id="totalNumber"></span></h4></div>
-                        <div class="col-md-2 text-info"><h4>总计：{{total.toFixed(2)}}<span class="text-danger" id="total"></span></h4></div>
+                        <div class="col-md-2 text-info">
+                            <h4>总数：{{totalNumber}}
+                                <span class="text-danger"></span>
+                            </h4>
+                        </div>
+                        <div class="col-md-2 text-info">
+                            <h4>总计：{{total.toFixed(2)}}
+                                <span class="text-danger"></span>
+                            </h4>
+                        </div>
                     </div>
                 </div>
             </div>

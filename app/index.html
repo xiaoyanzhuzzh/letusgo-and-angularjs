@@ -45,7 +45,7 @@
                   </label>
               </div>
               <!-- Collect the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <div class="collapse navbar-collapse">
                   <ul class="nav navbar-nav">
 
                       <li role="presentation" class="active"><a href="#">主页</a></li>
@@ -56,7 +56,7 @@
                   <ul class="nav navbar-nav navbar-right">
                       <li>
                           <a href="#/cartItemsList">
-                              <span id="itemsNumber" class="glyphicon glyphicon-shopping-cart text-primary">购物车{{cartCount}}</span>
+                              <span class="glyphicon glyphicon-shopping-cart text-primary">购物车{{cartCount}}</span>
 
                           </a>
                       </li>
@@ -81,6 +81,9 @@
                 <!-- build:js(.) scripts/vendor.js -->
                 <!-- bower:js -->
                 <script src="bower_components/jquery/dist/jquery.js"></script>
+                <script src="scripts/controllers/lib/lodash-2.4.1/lodash.js"></script>
+                <script src="scripts/controllers/lib/lodash-2.4.1/lodash.compat.js"></script>
+
                 <script src="bower_components/es5-shim/es5-shim.js"></script>
                 <script src="bower_components/angular/angular.js"></script>
                 <script src="bower_components/json3/lib/json3.js"></script>
@@ -104,6 +107,8 @@
                 <script src="scripts/controllers/cartCount.js"></script>
                 <script src="scripts/controllers/itemsList.js"></script>
                 <script src="scripts/controllers/cartItemsList.js"></script>
+                <script src="scripts/controllers/cartPayList.js"></script>
+
                 <!-- endbuild -->
 
 

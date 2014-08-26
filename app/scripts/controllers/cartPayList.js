@@ -16,16 +16,20 @@ angular.module('myYoApp')
     ];
 
     $scope.cartPayList = JSON.parse(localStorage.getItem('cartItems'));
+    console.log($scope.cartPayList);
 
-    $scope.total = getTotal($scope.cartItems);
+    $scope.total = getTotal($scope.cartPayList);
 
-    $scope.totalNumber = getTotalNumber($scope.cartItems);
+    $scope.totalNumber = getTotalNumber($scope.cartPayList);
   });
 
-  
+
   function getTotal(array){
 
     var total = 0;
+    if(!array){
+      array = [];
+    }
     for(var i = 0; i < array.length; i++){
         total += array[i].number * array[i].item.price;
     }
@@ -35,6 +39,10 @@ angular.module('myYoApp')
   function getTotalNumber(array){
 
     var totalNumber = 0;
+    var total = 0;
+    if(!array){
+      array = [];
+    }
     for(var i = 0; i < array.length; i++){
         totalNumber += array[i].number;
     }
